@@ -1,0 +1,50 @@
+﻿create table Branch(
+name VARCHAR(25) NOT NULL PRIMARY KEY,
+address VARCHAR(50) NOT NULL);
+ 
+create table Customer(
+ssn CHAR(9) NOT NULL PRIMARY KEY,
+fname VARCHAR(25) NOT NULL,
+lname VARCHAR(25) NOT NULL,
+phone CHAR(10) NOT NULL,
+address VARCHAR(50) NOT NULL,
+fv_branch VARCHAR(25) NOT NULL);
+
+
+create table Account(
+acc_no CHAR(9) NOT NULL PRIMARY KEY,
+balance DECIMAL(15,2) NOT NULL,
+atype VARCHAR(10) NOT NULL,
+fee DECIMAL(7,2) NOT NULL);
+
+
+create table Owns(
+ssn CHAR(9) NOT NULL,
+acc_no CHAR(9) NOT NULL,
+own_date DATE NOT NULL,
+FOREIGN KEY (ssn) REFERENCES Customer(ssn),
+FOREIGN KEY (acc_no) REFERENCES Account(acc_no));
+
+
+create table Loan(
+loan_no CHAR(9) NOT NULL PRIMARY KEY,
+amount DECIMAL(15,2) NOT NULL,
+ltype VARCHAR(10) NOT NULL,
+interest_rate DECIMAL(7,4) NOT NULL);
+
+
+create table Payment(
+loan_no CHAR(9) NOT NULL,
+payment_no CHAR(4) NOT NULL PRIMARY KEY,
+amount DECIMAL(10,2) NOT NULL,
+method VARCHAR(10) NOT NULL,
+status VARCHAR(10) NOT NULL,
+due_date DATE,
+FOREIGN KEY (loan_no) REFERENCES Loan(loan_no));
+
+
+create table Borrows(
+ssn CHAR(9) NOT NULL,
+loan_no CHAR(9) NOT NULL,
+FOREIGN KEY (ssn) REFERENCES Customer(ssn),
+FOREIGN KEY (loan_no) REFERENCES Loan(loan_no));

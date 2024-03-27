@@ -1,0 +1,93 @@
+﻿INSERT INTO Loan (loan_no, amount, ltype, interest_rate)
+VALUES ('123456789', '1000.00', 'Big', '134.3245');
+
+
+INSERT INTO Payment (loan_no, payment_no, amount, method, status, due_date)
+VALUES ('123456789', '1234', '100.00', 'Online', 'On Time', '2022-04-18');
+
+
+INSERT INTO Loan (loan_no, amount, ltype, interest_rate)
+VALUES ('394910492', '1000.00', 'Big', '134.3245');
+
+
+INSERT INTO Payment (loan_no, payment_no, amount, method, status, due_date)
+VALUES ('394910492', '1238', '950.00', 'Online', 'On Time', '2022-05-22');
+
+
+INSERT INTO Customer (ssn, fname, lname, phone, address, fv_branch)
+VALUES ('999999999', 'John', 'Smith', '4085858234', '1634 Fir Dr', 'Westpoint');
+
+
+INSERT INTO Account (acc_no, balance, atype, fee)
+VALUES ('111222333', '170000.00', 'Checking', '500.00');
+
+
+INSERT INTO Owns (ssn, acc_no, own_date)
+VALUES ('999999999', '111222333', '2022-02-02');
+
+
+INSERT INTO Customer (ssn, fname, lname, phone, address, fv_branch)
+VALUES ('098098098', 'John', 'Smith', '5309081234', '1400 Pionner Aver', 'Roseville');
+
+
+INSERT INTO Account (acc_no, balance, atype, fee)
+VALUES ('000000001', '150000.00', 'Checking', '800.00');
+
+
+INSERT INTO Owns (ssn, acc_no, own_date)
+VALUES ('098098098', '000000001', '2022-02-12');
+
+
+
+
+INSERT INTO Loan (loan_no, amount, ltype, interest_rate)
+VALUES ('444444444', '1000.00', 'Big', '134.3245');
+
+
+INSERT INTO Payment (loan_no, payment_no, amount, method, status, due_date)
+VALUES ('444444444', '1222', '100.00', 'check', 'On Time', '2022-04-16');
+
+
+INSERT INTO Customer (ssn, fname, lname, phone, address, fv_branch)
+VALUES ('888777888', 'John', 'Smith', '4085858234', '1634 Fir Dr', 'Westpoint');
+
+
+INSERT INTO Borrows (ssn, loan_no)
+VALUES ('888777888', '444444444');
+
+
+INSERT INTO Customer (ssn, fname, lname, phone, address, fv_branch)
+VALUES ('999999999', 'John', 'Cena', '4085858234', '1634 Fir Dr', 'Woodland');
+
+
+INSERT INTO Account (acc_no, balance, atype, fee)
+VALUES ('111222333', '170000.00', 'Checking', '500.00');
+
+
+INSERT INTO Account (acc_no, balance, atype, fee)
+VALUES ('111333444', '120000.00', 'Checking', '300.00');
+
+
+INSERT INTO Owns (ssn, acc_no, own_date)
+VALUES ('999999999', '111222333', '2022-02-02');
+
+
+INSERT INTO Owns (ssn, acc_no, own_date)
+VALUES ('999999999', '111333444', '2022-01-06');
+
+
+INSERT INTO Branch (name, address)
+VALUES ('Westpoint', '512 Pine Street');
+
+
+INSERT INTO Customer (ssn, fname, lname, phone, address, fv_branch)
+VALUES ('222333444', 'Manny', 'Banny', '4085858234', '1634 Fir Dr', 'Westpoint');
+
+
+DELETE FROM Payment 
+WHERE loan_no = '123456789' AND payment_no = '1234';
+
+
+UPDATE Account 
+SET balance = '180000.00' 
+WHERE acc_no = '111222333';
